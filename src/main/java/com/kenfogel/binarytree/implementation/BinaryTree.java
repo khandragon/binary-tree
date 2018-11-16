@@ -11,19 +11,45 @@ import java.util.Queue;
  */
 public class BinaryTree {
 
-    // Root node pointer. Will be null for an empty tree.
+    // Root node reference. Will be null for an empty tree.
     private BinaryTreeNode root;
 
     /**
-     * Creates an empty binary tree -- a null root pointer.
+     * Creates an empty binary tree -- a null root reference.
      */
     public void BinaryTree() {
         root = null;
     }
 
     /**
-     * Returns true if the given target is in the binary tree. Uses a recursive
+     * Inserts the given data into the binary tree.Uses a recursive helper.
+     *
+     * @param data
+     */
+    public void insert(int data) {
+        root = insert(root, data);
+    }
+
+    private BinaryTreeNode insert(BinaryTreeNode node, int data) {
+        if (node == null) {
+            node = new BinaryTreeNode(data);
+        } else {
+            if (data <= node.data) {
+                node.left = insert(node.left, data);
+            } else {
+                node.right = insert(node.right, data);
+            }
+        }
+
+        return (node); // in any case, return the new reference to the caller
+    }
+
+    /**
+     * Returns true if the given target is in the binary tree.Uses a recursive
      * helper.
+     *
+     * @param data
+     * @return
      */
     public boolean lookup(int data) {
         return (lookup(root, data));
@@ -48,29 +74,10 @@ public class BinaryTree {
     }
 
     /**
-     * Inserts the given data into the binary tree. Uses a recursive helper.
-     */
-    public void insert(int data) {
-        root = insert(root, data);
-    }
-
-    private BinaryTreeNode insert(BinaryTreeNode node, int data) {
-        if (node == null) {
-            node = new BinaryTreeNode(data);
-        } else {
-            if (data <= node.data) {
-                node.left = insert(node.left, data);
-            } else {
-                node.right = insert(node.right, data);
-            }
-        }
-
-        return (node); // in any case, return the new pointer to the caller
-    }
-
-    /**
      * Returns the number of nodes in the tree. Uses a recursive helper that
-     * recurs down the tree and counts the nodes.
+     * recurses down the tree and counts the nodes.
+     *
+     * @return
      */
     public int size() {
         return (size(root));
@@ -86,7 +93,9 @@ public class BinaryTree {
 
     /**
      * Returns the max root-to-leaf depth of the tree. Uses a recursive helper
-     * that recurs down to find the max depth.
+     * that recurses down to find the max depth.
+     *
+     * @return
      */
     public int maxDepth() {
         return (maxDepth(root));
@@ -107,6 +116,8 @@ public class BinaryTree {
     /**
      * Returns the min value in a non-empty binary search tree. Uses a helper
      * method that iterates to the left to find the min value.
+     *
+     * @return
      */
     public int minValue() {
         return (minValue(root));

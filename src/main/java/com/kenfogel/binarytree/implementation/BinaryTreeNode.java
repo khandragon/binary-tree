@@ -7,10 +7,16 @@ package com.kenfogel.binarytree.implementation;
  */
 public class BinaryTreeNode {
 
+    // package access to support reading and writing directly
+    // from the BinaryTree class without the need for setters & getters
     BinaryTreeNode left;
     BinaryTreeNode right;
     int data;
 
+    /**
+     * Constructor that creates nodes
+     * @param newData 
+     */
     public BinaryTreeNode(int newData) {
         left = null;
         right = null;

@@ -1,7 +1,6 @@
 package com.kenfogel.binarytree.implementation;
 
 import java.util.ArrayDeque;
-import java.util.LinkedList;
 import java.util.Queue;
 
 /**
@@ -49,7 +48,7 @@ public class BinaryTree {
      * helper.
      *
      * @param data
-     * @return
+     * @return true of false depending on whether the data is found
      */
     public boolean lookup(int data) {
         return (lookup(root, data));
@@ -73,11 +72,12 @@ public class BinaryTree {
         }
     }
 
+    ///////////////////////////////////////////////////////////////////////////
     /**
      * Returns the number of nodes in the tree. Uses a recursive helper that
      * recurses down the tree and counts the nodes.
      *
-     * @return
+     * @return the number of elements in the tree
      */
     public int size() {
         return (size(root));
@@ -95,7 +95,7 @@ public class BinaryTree {
      * Returns the max root-to-leaf depth of the tree. Uses a recursive helper
      * that recurses down to find the max depth.
      *
-     * @return
+     * @return The depth of the tree from the root to the lowest node
      */
     public int maxDepth() {
         return (maxDepth(root));
@@ -117,7 +117,7 @@ public class BinaryTree {
      * Returns the min value in a non-empty binary search tree. Uses a helper
      * method that iterates to the left to find the min value.
      *
-     * @return
+     * @return The smallest value in the tree
      */
     public int minValue() {
         return (minValue(root));
@@ -251,5 +251,4 @@ public class BinaryTree {
             System.out.println();
         }
     }
-
 }

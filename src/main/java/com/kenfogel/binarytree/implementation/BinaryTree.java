@@ -16,7 +16,7 @@ public class BinaryTree {
     /**
      * Creates an empty binary tree -- a null root reference.
      */
-    public void BinaryTree() {
+    public BinaryTree() {
         root = null;
     }
 
